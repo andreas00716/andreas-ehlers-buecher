@@ -271,6 +271,114 @@ section { padding: 4rem 2rem; }
   align-self: flex-start;
 }
 
+/* ── Featured book (homepage) ── */
+.book-featured {
+  position: relative;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 40px rgba(15, 31, 61, 0.18);
+  overflow: hidden;
+}
+
+.book-featured::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(184,148,58,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.book-featured-badge {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+}
+
+.book-featured-cover {
+  flex-shrink: 0;
+}
+
+.book-featured-cover img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  display: block;
+}
+
+.book-featured-body { color: var(--white); }
+
+.book-featured-body .book-card-tag { color: var(--gold-light); }
+
+.book-featured-body h3 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+  color: var(--white);
+}
+
+.book-featured-subtitle {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.book-featured-body p {
+  color: rgba(255,255,255,0.82);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.book-featured-body em {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.book-featured-body .btn-primary {
+  margin-top: 0.5rem;
+  background: var(--gold);
+}
+
+.backlist-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .book-featured {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .book-featured-cover img {
+    width: 160px;
+    margin: 0 auto;
+  }
+  .book-featured-badge { top: 1rem; right: 1rem; }
+  .book-featured-body h3 { font-size: 1.5rem; }
+  .book-featured-body .btn-primary { margin: 0.5rem auto 0; display: inline-block; }
+}
+
 /* ── Book detail page ── */
 .book-header {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
