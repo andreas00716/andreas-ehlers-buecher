@@ -683,6 +683,95 @@ form label {
   margin-bottom: 0.5rem;
 }
 
+/* ── International edition card ── */
+.intl-edition-section {
+  border-top: 1px solid var(--border);
+}
+
+.intl-edition-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(15, 31, 61, 0.18);
+  overflow: hidden;
+}
+
+.intl-edition-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(184,148,58,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.intl-edition-badge {
+  position: absolute;
+  top: 1.25rem; right: 1.25rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: 'Arial', sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.intl-edition-cover img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  display: block;
+}
+
+.intl-edition-body { color: var(--white); }
+
+.intl-edition-body .book-header-tag { color: var(--gold-light); margin-bottom: 0.75rem; }
+
+.intl-edition-title {
+  font-size: 1.7rem;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+  color: var(--white);
+}
+
+.intl-edition-subtitle {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.97rem;
+  margin-bottom: 1.25rem;
+}
+
+.intl-edition-details {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.75rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 620px) {
+  .intl-edition-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .intl-edition-cover img {
+    width: 140px;
+    margin: 0 auto;
+  }
+  .intl-edition-badge { top: 1rem; right: 1rem; }
+  .intl-edition-details { justify-content: center; }
+}
+
 /* ── Footer ── */
 footer {
   background: var(--navy);
