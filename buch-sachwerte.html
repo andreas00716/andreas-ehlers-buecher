@@ -6,6 +6,80 @@
   <title>Geld verliert – Sachwerte gewinnen | Andreas Ehlers</title>
   <meta name="description" content="Andreas Ehlers erklärt, warum Geld schleichend an Kaufkraft verliert und warum Sachwerte eine ökonomisch folgerichtige Antwort auf das Fiat-Geldsystem sind.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .schaubild-thumb {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      width: 340px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: zoom-in;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .schaubild-thumb:hover {
+      box-shadow: 0 4px 20px rgba(184,148,58,0.3);
+      border-color: var(--gold);
+    }
+    .schaubild-hint {
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+    #lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 9999;
+      overflow-y: auto;
+      cursor: zoom-out;
+    }
+    #lightbox-overlay.lb-active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+    #lightbox-img-wrap {
+      position: relative;
+      cursor: default;
+      margin: auto;
+    }
+    #lightbox-img-wrap img {
+      display: block;
+      max-width: min(95vw, 1400px);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7);
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 1rem;
+      right: 1.25rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      background: rgba(30, 30, 30, 0.75);
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s, background 0.2s;
+      z-index: 10000;
+      font-family: Arial, sans-serif;
+    }
+    #lightbox-close:hover {
+      color: var(--gold-light);
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
 </head>
 <body>
 
@@ -50,6 +124,17 @@
       <p>Wer Geld spart, verlässt sich meist auf nominale Versprechen: Kontostände, Zinsen, Garantien. Doch Geld ist kein stabiler Maßstab mehr. In einem Fiat-Geldsystem, das auf stetiger Geldmengenausweitung und politischer Steuerung beruht, verliert Kaufkraft nicht durch Ausnahmeereignisse, sondern durch Struktur. Oft langsam, oft unspektakulär &ndash; aber kontinuierlich.</p>
       <p>Sachwerte stehen dabei nicht im Mittelpunkt, weil sie &bdquo;modern&ldquo; oder alternativ sind, sondern weil sie ökonomisch folgerichtig sind. Sie sind begrenzt, produktiv oder nutzbar – und damit grundlegend anders positioniert als Geldwerte, die beliebig vermehrt werden können.</p>
       <p>Das Buch richtet sich an Privatanleger, die ihr Vermögen realistisch schützen wollen. Nicht gegen das System, sondern innerhalb seiner Regeln. Mit Sachlichkeit, mit Weitblick – und mit Verantwortung für das eigene Kapital.</p>
+    </div>
+
+    <div class="content-block">
+      <h2>Buchstruktur im Überblick</h2>
+      <p style="color:var(--text-muted); margin-bottom:1.25rem;">Das folgende Schaubild zeigt den Aufbau des Buches und die thematischen Schwerpunkte im Überblick.</p>
+      <img src="Geld_verliert-Sachwerte_gewinnen_Schaubild_Druck.png"
+           alt="Buchstruktur: Geld verliert – Sachwerte gewinnen – Schaubild"
+           class="schaubild-thumb"
+           onclick="openLightbox(this)"
+           title="Klicken zum Vergrößern">
+      <p class="schaubild-hint">Klicken zum Vergrößern</p>
     </div>
 
     <div class="content-block">
@@ -114,6 +199,34 @@
     <p class="footer-copy">&copy; 2026 Andreas Ehlers &middot; Alle Rechte vorbehalten</p>
   </div>
 </footer>
+
+<!-- Lightbox -->
+<div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Schaubild in voller Größe">
+  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Schließen">&#x2715;</button>
+  <div id="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  function openLightbox(img) {
+    var overlay = document.getElementById('lightbox-overlay');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    overlay.classList.add('lb-active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox-overlay').classList.remove('lb-active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('lightbox-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b3fbc15b93a64142990292518c03b51b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
