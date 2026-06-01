@@ -396,7 +396,7 @@ section { padding: 4rem 2rem; }
 }
 
 .book-header-cover {
-  width: 200px;
+  width: 280px;
   border-radius: var(--radius);
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
@@ -827,7 +827,7 @@ footer .footer-copy {
   }
 
   .book-header-cover {
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
   }
 
